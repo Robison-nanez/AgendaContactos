@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AgendaController as Agenda;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +22,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('agenda')->group(function () {
+    Route::post('/guardar', [Agenda::class,'GuardarAgenda']);
+    Route::get('/listar/{id}', [Agenda::class,'ListarAgenda']);
+    Route::delete('/eliminar/{id}', [Agenda::class,'EliminarAgenda']);
+});
