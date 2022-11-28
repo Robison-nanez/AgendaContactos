@@ -27,3 +27,7 @@ npm
 11. Dirigirse en la parte superior derecha donde dice login e ingresar las siguientes credenciales:
     Usuario: admin@admin.com
     Constraseña: Admin1234
+
+12. Ya ingreso la vista que nos aparece es el de la tabla de todos los contactos que estan en la agenda.
+13. En la parte arriba derecha hay un boton que es Nuevo Contacto que nos aparecera el formulario de creacion del contacto.
+14. En las tablas estan las acciones de actualizar el contacto o eliminar el contacto
