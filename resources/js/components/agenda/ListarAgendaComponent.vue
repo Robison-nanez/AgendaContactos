@@ -31,6 +31,7 @@
                                             style="float: right; margin-right: 5%;"
                                             v-bind="attrs"
                                             v-on="on"
+                                            @click="AbrirModal()"
                                         >
                                             Nuevo Contacto
                                         </v-btn>
@@ -263,6 +264,17 @@ export default {
 
     },
     methods: {
+        AbrirModal(){
+            this.dialog = true
+            this.id_agenda = '';
+            this.textomodal = 'Nueva Agenda'
+            this.textobotonmodal = 'Guardar'
+            this.data.nombre = '';
+            this.data.telefono = '';
+            this.data.fecha = (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10);
+            this.data.direccion = '';
+            this.data.correo = '';
+        },
         GuardarContanto(){
             axios
                 .post('/agenda/guardar',this.data)

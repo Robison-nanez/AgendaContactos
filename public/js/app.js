@@ -5405,6 +5405,17 @@ __webpack_require__.r(__webpack_exports__);
   beforeMount: function beforeMount() {},
   mounted: function mounted() {},
   methods: {
+    AbrirModal: function AbrirModal() {
+      this.dialog = true;
+      this.id_agenda = '';
+      this.textomodal = 'Nueva Agenda';
+      this.textobotonmodal = 'Guardar';
+      this.data.nombre = '';
+      this.data.telefono = '';
+      this.data.fecha = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10);
+      this.data.direccion = '';
+      this.data.correo = '';
+    },
     GuardarContanto: function GuardarContanto() {
       axios.post('/agenda/guardar', this.data).then(function (response) {
         response = response.data;
@@ -5539,6 +5550,11 @@ var render = function render() {
           staticStyle: {
             "float": "right",
             "margin-right": "5%"
+          },
+          on: {
+            click: function click($event) {
+              return _vm.AbrirModal();
+            }
           }
         }, "v-btn", attrs, false), on), [_vm._v("\n                                        Nuevo Contacto\n                                    ")])];
       }
